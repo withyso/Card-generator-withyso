@@ -1,7 +1,7 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
 body {
-  background-color: green;
+  background-color: #439028;
   height: 100vh;
   margin-top: 10%;
 }
@@ -12,13 +12,15 @@ body {
 }
 
 .card {
+  border-radius: 8px;
   background-color: white;
   padding: 5px;
   height: 485px;
   width: 350px;
   padding-left: 20px;
   padding-right: 20px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 }
 
 .number {
@@ -48,4 +50,8 @@ body {
   height: 25%;
   rotate: 180deg;
   flex-direction: column;
+}
+
+.btn {
+  margin-top: 10px;
 }
