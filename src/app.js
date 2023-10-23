@@ -7,7 +7,10 @@ import "./assets/img/4geeks.ico";
 import { Button } from "bootstrap";
 
 window.onload = function() {
-  setInterval(() => {}, 1000 * 10);
+  setInterval(() => {
+    randomNumber(htmlNumber);
+    randomSuit();
+  }, 1000 * 5);
 
   //Selectores de Html
   let htmlTopSuit = document.querySelector("#top-suit");
@@ -17,11 +20,11 @@ window.onload = function() {
 
   //Funciones
   randomNumber(htmlNumber);
-  randomSuit(htmlTopSuit, htmlBotSuit);
+  randomSuit();
 
   htmlButton.addEventListener("click", event => {
     randomNumber(htmlNumber);
-    randomSuit(htmlTopSuit, htmlBotSuit);
+    randomSuit();
   });
 
   function randomNumber(htmlElement) {
@@ -45,6 +48,27 @@ window.onload = function() {
     return htmlElement;
   }
 
+  function randomSuit() {
+    const suits = ["♦", "♥", "♠", "♣"];
+    let index = Math.floor(Math.random() * suits.length);
+    htmlTopSuit.innerHTML = `<div id="top-suit" class="top-suit"> ${suits[index]} </div>`;
+    if (`${suits[index]}` === "♦" || `${suits[index]}` === "♥") {
+      htmlTopSuit.classList.replace("text-dark", "text-danger");
+    }
+    if (`${suits[index]}` === "♠" || `${suits[index]}` === "♣") {
+      htmlTopSuit.classList.replace("text-danger", "text-dark");
+    }
+    htmlBotSuit.innerHTML = `<div id="bot-suit" class="bottom-suit"> ${suits[index]} </div>`;
+    if (`${suits[index]}` === "♦" || `${suits[index]}` === "♥") {
+      htmlBotSuit.classList.replace("text-dark", "text-danger");
+    }
+    if (`${suits[index]}` === "♠" || `${suits[index]}` === "♣") {
+      htmlBotSuit.classList.replace("text-danger", "text-dark");
+    }
+    console.log(suits[index]);
+  }
+
+  /*
   function randomSuit(htmlElement, htmlElement2) {
     const suits = ["1", "2", "3", "4"];
     let iteration = Math.floor(Math.random() * suits.length);
@@ -70,6 +94,12 @@ window.onload = function() {
       htmlElement.innerHTML = "&spades;";
       htmlElement2.innerHTML = "&spades;";
     }
+    console.log(iteration);
+    htmlButton.addEventListener("click", event => {
+      randomNumber(htmlNumber);
+      randomSuit(htmlTopSuit, htmlBotSuit);
+    });
     return htmlElement, htmlElement2;
   }
+  */
 };

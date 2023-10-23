@@ -45,7 +45,7 @@ body {
 .bottom-suit {
   display: flex;
   justify-content: center;
-  align-items: stretch;
+  align-items: flex-start;
   font-size: 80px;
   height: 25%;
   rotate: 180deg;
